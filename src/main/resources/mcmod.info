@@ -1,8 +1,8 @@
 [
 {
-  "modid": "PLACEMODIDHERE",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "brg",
+  "name": "Bloodmoon Raygun",
+  "description": "Disables the raygun's when there's no bloodmoon to reduce OPness",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
