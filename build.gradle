@@ -1,0 +1,46 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url = "http://files.minecraftforge.net/maven" }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+version = "1.0"
+group = "info.zthings.mcmods.modid"
+archivesBaseName = "modid"
+
+sourceCompatibility = targetCompatibility = '1.8'
+compileJava { sourceCompatibility = targetCompatibility = '1.8' }
+
+minecraft {
+    version = "1.12.2-14.23.1.2604"
+    runDir = "run"
+    mappings = "snapshot_20170624"
+}
+
+repositories {
+	maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+	deobfCompile 'com.github.HoldYourWaffle2:Bloodmoon:tempfix-SNAPSHOT' // v1.5.2, contains a fix for jitpack
+	deobfCompile ('com.github.grim3212:grim-pack:3935b2ef07') { // v5.2.12.78
+		exclude group: 'mezz.jei'
+	}
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+        
+    from(sourceSets.main.resources.srcDirs) { exclude 'mcmod.info' }
+}
