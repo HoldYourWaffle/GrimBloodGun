@@ -24,7 +24,7 @@ public class BloodMoonRaygunMod {
 	
 	@SubscribeEvent
 	public void cancelRaygun(PlayerInteractEvent.RightClickItem e) {
-		if ((e.getItemStack().getItem() instanceof ItemRayg || e.getItemStack().getItem() instanceof ItemAdvRayg) && !BloodmoonHandler.INSTANCE.isBloodmoonActive()) {
+		if ((e.getItemStack().getItem() instanceof ItemRayg || e.getItemStack().getItem() instanceof ItemAdvRayg) && (!BloodmoonHandler.INSTANCE.isBloodmoonActive() || e.getEntityPlayer().dimension != 0)) {
 			e.setCancellationResult(EnumActionResult.FAIL);
 			e.setCanceled(true);
 		}
