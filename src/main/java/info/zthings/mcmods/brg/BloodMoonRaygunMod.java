@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod(modid = BloodMoonRaygunMod.MODID, version = BloodMoonRaygunMod.VERSION)
 public class BloodMoonRaygunMod {
 	public static final String MODID = "brg";
-	public static final String VERSION = "1.0";
+	public static final String VERSION = "1.1";
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
